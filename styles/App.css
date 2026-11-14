@@ -1,0 +1,428 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0f172a;
+    --bg-soft: #1e293b;
+    --panel: #1e293b;
+    --panel-2: #0f172a;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-2: #22d3ee;
+    --danger: #f87171;
+    --success: #34d399;
+    --radius: 10px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(1200px 600px at 80% -10%, #1e3a8a33, transparent), var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin: 4px 0 28px;
+}
+
+.app-main {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .app-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Semester section */
+
+.semesters-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.semester-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+
+.semester-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.semester-title-input {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text);
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 6px 8px;
+    border-radius: 6px;
+    min-width: 200px;
+}
+
+.semester-title-input:hover,
+.semester-title-input:focus {
+    border-color: var(--border);
+    outline: none;
+    background: var(--panel-2);
+}
+
+.semester-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
+
+.semester-badge strong {
+    color: var(--accent);
+}
+
+.semester-badge .meta {
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+
+/* Course table */
+
+.course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+}
+
+.course-table th {
+    text-align: left;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--border);
+}
+
+.course-table td {
+    padding: 6px;
+    border-bottom: 1px solid #24324a;
+    vertical-align: middle;
+}
+
+.course-row:last-child td {
+    border-bottom: none;
+}
+
+.input-text,
+.input-units,
+.input-select {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.input-text:focus,
+.input-units:focus,
+.input-select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.input-units {
+    width: 70px;
+    text-align: center;
+}
+
+.input-select {
+    width: 80px;
+}
+
+.numeric {
+    color: var(--accent);
+    font-weight: 600;
+    text-align: center;
+    width: 60px;
+}
+
+.btn-remove {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--danger);
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+}
+
+.btn-remove:hover {
+    background: var(--danger);
+    color: #fff;
+    border-color: var(--danger);
+}
+
+
+/* Add course form */
+
+.add-course-form {
+    display: grid;
+    grid-template-columns: 2fr 90px 110px 130px;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    .add-course-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn-add {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #0b1220;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.btn-add:hover {
+    opacity: 0.9;
+}
+
+.empty-state {
+    color: var(--muted);
+    font-style: italic;
+    padding: 12px 0;
+    margin: 0 0 12px;
+}
+
+.btn-reset {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-reset:hover {
+    color: var(--text);
+    border-color: var(--danger);
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.result-card {
+    background: linear-gradient(160deg, #1e3a8a55, var(--panel));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+
+.result-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.result-block {
+    text-align: center;
+}
+
+.result-block .label {
+    display: block;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.result-block .value {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+}
+
+.result-block .classification {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: var(--success);
+    font-weight: 600;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+}
+
+.result-stats div {
+    text-align: center;
+}
+
+.result-stats .label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+.result-stats .stat {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.semester-breakdown {
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+}
+
+.semester-breakdown h4 {
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 4px 0;
+}
+
+
+/* Grade scale */
+
+.grade-scale {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+}
+
+.grade-scale h3 {
+    margin: 0 0 12px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.grade-scale table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.grade-scale th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 500;
+    padding: 6px 4px;
+    border-bottom: 1px solid var(--border);
+}
+
+.grade-scale td {
+    padding: 6px 4px;
+    border-bottom: 1px solid #24324a;
+}
+
+.grade-scale tr:last-child td {
+    border-bottom: none;
+}
+
+.grade-badge {
+    display: inline-block;
+    width: 26px;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #0b1220;
+}
+
+.grade-A {
+    background: #34d399;
+}
+
+.grade-B {
+    background: #38bdf8;
+}
+
+.grade-C {
+    background: #a3e635;
+}
+
+.grade-D {
+    background: #fbbf24;
+}
+
+.grade-E {
+    background: #fb923c;
+}
+
+.grade-F {
+    background: #f87171;
+}
